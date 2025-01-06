@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ns1="http://service.linexus.com/"
+    xmlns:ns2="http://dao.linexus.com/">
+ <SOAP-ENV:Body>
+   <ns2:getOrderLikeList>
+    <arg0></arg0>
+    <arg1>
+     <orderCheck>0</orderCheck>
+     <orderClient></orderClient>
+     <orderClientId>0</orderClientId>
+     <orderCost>0.0</orderCost>
+     <orderHide>0</orderHide>
+     <orderId>0</orderId>
+     <orderProductId>0</orderProductId>
+     <orderProductName></orderProductName>
+     <orderProductNum>0</orderProductNum>
+     <orderProductStyle></orderProductStyle>
+     <orderRefund>0</orderRefund>
+     <orderShip>0</orderShip>
+     <orderShopId>0</orderShopId>
+     <orderTime>2025-01-05T12:46:22Z</orderTime>
+    </arg1>
+   </ns2:getOrderLikeList>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

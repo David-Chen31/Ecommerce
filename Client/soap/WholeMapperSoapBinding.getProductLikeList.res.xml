@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ns1="http://service.linexus.com/"
+    xmlns:ns2="http://dao.linexus.com/">
+ <SOAP-ENV:Body>
+  <ns2:getProductLikeListResponse>
+   <return>
+    <discountEndTime>2025-01-05T12:46:22Z</discountEndTime>
+    <discountStartTime>2025-01-05T12:46:22Z</discountStartTime>
+    <flashSaleEndTime>2025-01-05T12:46:22Z</flashSaleEndTime>
+    <flashSalePurchaseLimit>0</flashSalePurchaseLimit>
+    <flashSaleStartTime>2025-01-05T12:46:22Z</flashSaleStartTime>
+    <productBuyNum>0</productBuyNum>
+    <productDiscount>0.0</productDiscount>
+    <productFlashSalePrice>0.0</productFlashSalePrice>
+    <productId>0</productId>
+    <productImage></productImage>
+    <productName></productName>
+    <productNum>0</productNum>
+    <productPrice>0</productPrice>
+    <productShopId>0</productShopId>
+   </return>
+  </ns2:getProductLikeListResponse>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

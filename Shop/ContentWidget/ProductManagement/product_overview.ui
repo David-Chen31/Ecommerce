@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ProductOverview</class>
+ <widget class="QWidget" name="ProductOverview">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>2010</width>
+    <height>1060</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>商品总览</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局背景色为白色，字体颜色为深灰色 */
+QWidget {
+    background-color: #FFFFFF;
+    font-size: 20px;
+    color: #333333;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+}
+
+/* QLineEdit 样式 */
+QLineEdit {
+    background-color: #F5F5F5;
+    border: 1px solid #1E90FF; /* 天蓝色边框 */
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 20px;
+    color: #333333;
+}
+
+QLineEdit:focus {
+    border: 2px solid #63B8FF; /* 聚焦时的浅天蓝色 */
+}
+
+/* QPushButton 样式 */
+QPushButton {
+    background-color: #1E90FF; /* 天蓝色背景 */
+    color: white;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #63B8FF; /* 浅天蓝色背景 */
+}
+
+QPushButton:pressed {
+    background-color: #4682B4; /* 深蓝色背景 */
+}
+
+/* QScrollArea 样式 */
+QScrollArea {
+    border: none;
+    background: #FFFFFF;
+}
+
+QScrollArea &gt; QWidget &gt; QScrollBar {
+    background-color: #F5F5F5; /* 浅灰色滚动条背景 */
+}
+
+/* 滚动条样式 */
+QScrollBar:vertical {
+    background: #E0E0E0; /* 浅灰色背景 */
+    width: 12px;
+}
+
+QScrollBar::handle:vertical {
+    background: #1E90FF; /* 天蓝色滚动条 */
+    border-radius: 6px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #63B8FF; /* 悬浮时变浅 */
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    background: transparent;
+    border: none;
+    height: 0px;
+}
+
+/* QScrollArea 内部内容样式 */
+QScrollArea QWidget {
+    background-color: #FFFFFF;
+    border: none;
+}
+
+/* 产品网格布局内容样式 */
+QGridLayout &gt; QWidget {
+    border: 1px solid #DDDDDD;
+    background-color: #F9F9F9;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+QGridLayout &gt; QWidget:hover {
+    background-color: #F0F8FF; /* 浅蓝色悬浮效果 */
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+   <item>
+    <layout class="QHBoxLayout" name="searchLayout">
+     <item>
+      <widget class="QLineEdit" name="searchBox">
+       <property name="placeholderText">
+        <string>搜索商品...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="filterButton">
+       <property name="text">
+        <string>筛选</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QScrollArea" name="goodsScrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollContent">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1998</width>
+        <height>997</height>
+       </rect>
+      </property>
+      <layout class="QGridLayout" name="productGridLayout"/>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

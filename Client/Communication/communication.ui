@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Communication</class>
+ <widget class="QWidget" name="Communication">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>2000</width>
+    <height>1000</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Communication</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局设置 */
+QWidget {
+    background-color: #FFFFFF; /* 全局背景白色 */
+    font-family: &quot;Microsoft YaHei&quot;;
+    font-size: 20px;
+    color: #333333; /* 默认字体颜色 */
+}
+
+/* 按钮样式 */
+QPushButton {
+    background-color: #FF6A00; /* 按钮背景橘色 */
+    color: white; /* 按钮文字颜色 */
+    border-radius: 8px; /* 圆角 */
+    padding: 8px 16px; /* 内边距 */
+    font-size: 20px;
+    border: 2px solid transparent; /* 默认透明边框 */
+}
+
+QPushButton:hover {
+    background-color: #FF4500; /* 悬停橘红色 */
+	border: 2px solid #FF6A00; /* 添加边框 */
+}
+
+QPushButton:pressed {
+    background-color: #CC3700; /* 按下深橘色 */
+    
+}
+
+/* 禁用状态 */
+QPushButton:disabled {
+    background-color: #F5F5F5; /* 灰色背景 */
+    color: #AAAAAA; /* 字体灰色 */
+    border: 2px solid #DDDDDD; /* 浅灰边框 */
+}
+
+/* 输入框样式 */
+QLineEdit, QTextEdit {
+
+    border: 2px solid #FF6A00; /* 橘色边框 */
+    border-radius: 5px; /* 圆角 */
+    padding: 6px 10px;
+    font-size: 20px;
+    color: #333333;
+}
+
+QLineEdit:focus, QTextEdit:focus {
+    border: 2px solid #FF4500; /* 聚焦橘红色边框 */
+    background-color: #FFFFFF; /* 聚焦背景白色 */
+}
+
+/* 标签样式 */
+QLabel {
+    background-color: transparent; /* 默认透明背景 */
+    color: #333333; /* 字体颜色深灰 */
+    font-size: 20px;
+    font-weight: normal;
+}
+
+QLabel#titleLabel {
+    font-size: 20px;
+    font-weight: bold;
+    color: #FF6A00; /* 标题标签橘色 */
+    border-bottom: 2px solid #FFEDD6; /* 下边框浅橘色 */
+    padding: 5px 0;
+}
+
+/* 滚动条样式 */
+QScrollBar:vertical {
+    background: #F5F5F5; /* 滚动条背景灰色 */
+    width: 12px; /* 滚动条宽度 */
+    border-radius: 6px; /* 圆角 */
+    margin: 2px 0; /* 内边距 */
+}
+
+QScrollBar::handle:vertical {
+    background: #FF6A00; /* 滚动条橘色 */
+    border-radius: 6px; /* 圆角 */
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #FF4500; /* 悬停橘红色 */
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px; /* 去除上下按钮 */
+}
+
+QScrollBar:horizontal {
+    background: #F5F5F5; /* 横向滚动条背景灰色 */
+    height: 12px; /* 高度 */
+    border-radius: 6px; /* 圆角 */
+}
+
+QScrollBar::handle:horizontal {
+    background: #FF6A00; /* 滚动条橘色 */
+    border-radius: 6px; /* 圆角 */
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: #FF4500; /* 悬停橘红色 */
+}
+
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    width: 0px; /* 去除左右按钮 */
+}
+
+/* 列表控件样式 */
+QListWidget {
+    background-color: #FFF2E6; /* 浅橘背景 */
+    border: 1px solid #FF6A00; /* 橘色边框 */
+    border-radius: 5px; /* 圆角 */
+    padding: 5px;
+}
+
+QListWidget::item {
+    background-color: transparent; /* 默认透明 */
+    padding: 10px;
+    font-size: 20px;
+    color: #333333; /* 字体深灰 */
+}
+
+QListWidget::item:hover {
+    background-color: #FFEDD6; /* 浅橘色悬停背景 */
+    border-radius: 5px; /* 圆角 */
+}
+
+QListWidget::item:selected {
+    background-color: #FF6A00; /* 橘色选中背景 */
+    color: white; /* 选中文字白色 */
+    border-radius: 5px; /* 圆角 */
+}
+
+/* 工具按钮样式 */
+QToolButton {
+    background-color: #FF6A00; /* 橘色背景 */
+    color: white; /* 按钮文字白色 */
+    border-radius: 5px; /* 圆角 */
+    padding: 8px 12px; /* 内边距 */
+    font-size: 20px;
+}
+
+QToolButton:hover {
+    background-color: #FF4500; /* 橘红色悬停效果 */
+}
+
+QToolButton:pressed {
+    background-color: #CC3700; /* 深橘色按下效果 */
+}
+
+/* 分割线样式 */
+QFrame#line {
+    background-color: #FF6A00; /* 橘色线条 */
+    height: 2px; /* 线条高度 */
+    border: none;
+    margin: 5px 0;
+}
+
+/* 表情和功能按钮 */
+QPushButton#emojiButton, QPushButton#attachmentButton {
+    background-color: #FFFFFF; /* 按钮背景白色 */
+    border: 2px solid #FF6A00; /* 橘色边框 */
+    border-radius: 5px; /* 圆角 */
+    padding: 5px;
+    font-size: 20px; /* 图标大小 */
+    color: #FF6A00; /* 字体橘色 */
+}
+
+QPushButton#emojiButton:hover, QPushButton#attachmentButton:hover {
+    background-color: #FFEDD6; /* 浅橘色悬停背景 */
+}
+
+QPushButton#emojiButton:pressed, QPushButton#attachmentButton:pressed {
+    background-color: #FF6A00; /* 橘色背景 */
+    color: white; /* 按下文字变白 */
+}
+</string>
+  </property>
+  <layout class="QHBoxLayout" name="mainLayout">
+   <item>
+    <widget class="QListWidget" name="contactList">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>450</width>
+       <height>0</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="rightLayout">
+     <item>
+      <widget class="QLabel" name="titleLabel">
+       <property name="text">
+        <string>商家名称</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="messageArea" native="true">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="emojiButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>😊</string>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>23</width>
+         <height>22</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="bottomLayout">
+       <item>
+        <widget class="QTextEdit" name="inputBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>300</height>
+          </size>
+         </property>
+         <property name="placeholderText">
+          <string>请输入消息...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="sendButton">
+         <property name="text">
+          <string>发送(S)</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

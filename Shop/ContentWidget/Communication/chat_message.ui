@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ChatMessage</class>
+ <widget class="QWidget" name="ChatMessage">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>80</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+/* 消息内容样式 */
+QLabel#messageLabel {
+    font-size: 20px;  /* 修改字体大小为20px */
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 250px;
+    word-wrap: break-word;
+}
+
+/* 头像样式 */
+QLabel#avatar {
+    border-radius: 25px;
+    background-color: #CCCCCC;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    max-height: 50px;
+}
+
+/* 发送者（客户）的消息 */
+QWidget#rightMessage {
+    background-color: #00BFFF; /* 天蓝色背景 */
+    color: #FFFFFF;  /* 白色字体 */
+}
+
+/* 接收者（联系人）的消息 */
+QWidget#leftMessage {
+    background-color: #FFFFFF; /* 白色背景 */
+    color: #333333;  /* 深灰色字体 */
+    border: 1px solid #00BFFF; /* 天蓝色边框 */
+}
+   </string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QLabel" name="avatar">
+     <property name="minimumSize">
+      <size>
+       <width>50</width>
+       <height>50</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>50</width>
+       <height>50</height>
+      </size>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="pixmap">
+      <pixmap>:/default_avatar.png</pixmap>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="messageLabel">
+     <property name="text">
+      <string>消息内容</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <connections/>
+</ui>

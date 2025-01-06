@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Home</class>
+ <widget class="QWidget" name="Home">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>2010</width>
+    <height>1060</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>商家管理系统 - 首页</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 设置全局背景色为白色 */
+QWidget {
+    background-color: #FFFFFF;
+    font-size: 20px;
+    color: #333333;
+}
+
+/* QVBoxLayout 和 QHBoxLayout 背景透明 */
+QVBoxLayout, QHBoxLayout {
+    background: transparent;
+}
+
+/* 设置 QLabel 文字的样式 */
+QLabel {
+    font-size: 20px;
+    color: #333333;
+}
+
+/* 设置标题标签的样式 */
+QLabel#orderTitle, QLabel#salesTitle, QLabel#visitorTitle, QLabel#chartTitle {
+    font-size: 22px;
+    font-weight: bold;
+    color: #1E90FF; /* 天蓝色 */
+}
+
+/* 设置内容标签的样式 */
+QLabel#orderCount, QLabel#salesAmount, QLabel#visitorCount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1E90FF; /* 天蓝色 */
+}
+
+/* 设置 QListWidget 样式 */
+QListWidget {
+    background-color: #FFFFFF;
+    border: 1px solid #1E90FF;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 20px;
+}
+
+QListWidget::item {
+    padding: 10px;
+    border-bottom: 1px solid #1E90FF;
+}
+
+QListWidget::item:hover {
+    background-color: #E6F7FF;
+}
+
+/* 设置按钮的样式（如果有的话） */
+QPushButton {
+    background-color: #1E90FF;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+QPushButton:hover {
+    background-color: #63B8FF;
+}
+
+QPushButton:pressed {
+    background-color: #4682B4;
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+   <item>
+    <layout class="QHBoxLayout" name="statsLayout">
+     <item>
+      <layout class="QVBoxLayout" name="orderCardLayout">
+       <item>
+        <widget class="QLabel" name="orderTitle">
+         <property name="font">
+          <font>
+           <pointsize>-1</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>今日订单数</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="orderCount">
+         <property name="font">
+          <font>
+           <pointsize>-1</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>256</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="salesCardLayout">
+       <item>
+        <widget class="QLabel" name="salesTitle">
+         <property name="font">
+          <font>
+           <pointsize>-1</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>今日销售额</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="salesAmount">
+         <property name="font">
+          <font>
+           <pointsize>-1</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>¥12,345.00</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="visitorCardLayout">
+       <item>
+        <widget class="QLabel" name="visitorTitle">
+         <property name="font">
+          <font>
+           <pointsize>-1</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>今日访客数</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="visitorCount">
+         <property name="font">
+          <font>
+           <pointsize>-1</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>489</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="chartLayout">
+     <item>
+      <widget class="QLabel" name="chartTitle">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>-1</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>销售趋势图</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QListWidget" name="hotSalesList">
+     <property name="minimumSize">
+      <size>
+       <width>1200</width>
+       <height>200</height>
+      </size>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

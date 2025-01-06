@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Promotion</class>
+ <widget class="QWidget" name="Promotion">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>2000</width>
+    <height>1000</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>促销活动</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局设置 */
+QWidget {
+    background-color: #FFFFFF;
+    font-family: &quot;Microsoft YaHei&quot;;
+    font-size: 20px;
+}
+
+/* 商品滚动区 */
+QScrollArea {
+    border: 1px solid #EEEEEE;
+    background-color: #FFFFFF;
+}
+
+QScrollArea QScrollBar:vertical {
+    background: #F5F5F5;
+    width: 10px;
+}
+
+QScrollArea QScrollBar::handle:vertical {
+    background: #FF6A00;
+    border-radius: 5px;
+}
+
+QScrollArea QScrollBar::add-line:vertical, QScrollArea QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+/* 左侧广告图片 */
+QLabel#advertisingLabel {
+    border: 2px solid #FF6A00;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+/* 商品标签 */
+QLabel {
+    background-color: #FFF2E6;
+    border: 1px solid #FF6A00;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+}
+
+QLabel:hover {
+    background-color: #FFEDD6;
+}
+
+/* 活动按钮 */
+QToolButton {
+    color: white;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 5px;
+    font-size: 20px;
+}
+
+
+/* 按钮样式 */
+QPushButton {
+    background-color: #FF6A00; /* 橘色 */
+    color: white;
+    border-radius: 5px;
+    padding: 8px 16px;
+    border: none;
+}
+
+QPushButton:hover {
+    background-color: #FF4500; /* 橘红色悬停效果 */
+}
+
+QPushButton:pressed {
+    background-color: #CC3700; /* 深橘色按下效果 */
+}</string>
+  </property>
+  <widget class="QScrollArea" name="goodsScrollArea">
+   <property name="geometry">
+    <rect>
+     <x>340</x>
+     <y>40</y>
+     <width>1641</width>
+     <height>941</height>
+    </rect>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1639</width>
+      <height>939</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="advertisingLabel">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>80</y>
+     <width>251</width>
+     <height>571</height>
+    </rect>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="res.qrc">:/image/5.jpg</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QWidget" name="promotionWidget">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>690</y>
+     <width>251</width>
+     <height>281</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="promotionLayout">
+    <item>
+     <widget class="QPushButton" name="SelectAll">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>全部</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="SelectFlashSale">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>限时秒杀</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QPushButton" name="SelectDiscount">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>限时折扣</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
+ <connections/>
+</ui>

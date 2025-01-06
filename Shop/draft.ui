@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OrderWidget</class>
+ <widget class="QWidget" name="OrderWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1700</width>
+    <height>220</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1700</width>
+    <height>220</height>
+   </size>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 样式表 */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+}
+
+QWidget {
+    background-color: #FFFFFF; /* 白色背景 */
+    color: #333333; /* 默认文本颜色 */
+}
+
+/* QLabel 样式 */
+QLabel {
+    font-size: 20px;
+    color: #333333;
+}
+
+/* 商品图片框 */
+QLabel#productImage {
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+}
+
+/* 标题 */
+QLabel#orderTitle {
+    font-size: 22px;
+    font-weight: bold;
+    color: #1E90FF; /* 天蓝色 */
+}
+
+/* 其他文本 */
+QLabel#customerInfo, QLabel#productInfo, QLabel#orderAmount, QLabel#orderStatus {
+    font-size: 20px;
+    color: #666666;
+}
+
+/* 订单状态 */
+QLabel#orderStatus {
+    color: #FF6A00; /* 橙色订单状态 */
+    font-weight: bold;
+}
+
+/* 按钮样式 */
+QPushButton {
+    background-color: #1E90FF; /* 天蓝色 */
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 8px 16px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+QPushButton:hover {
+    background-color: #63B8FF; /* 浅天蓝色 */
+}
+
+QPushButton:pressed {
+    background-color: #4682B4; /* 深天蓝色 */
+    transform: scale(0.95);
+}
+
+/* 组件间的间距 */
+QSpacer {
+    width: 20px;
+}
+
+/* QVBoxLayout 和 QHBoxLayout 的间隔 */
+QVBoxLayout, QHBoxLayout {
+    spacing: 15px;
+}
+
+/* 文字输入框 */
+QLineEdit {
+    border: 1px solid #1E90FF; /* 天蓝色边框 */
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 20px;
+}
+
+QLineEdit:focus {
+    border: 1px solid #63B8FF; /* 浅天蓝色边框 */
+}
+
+/* QLabel 和 QPushButton 之间的间距 */
+QLabel, QPushButton {
+    margin-bottom: 10px;
+}
+</string>
+  </property>
+  <layout class="QHBoxLayout" name="mainLayout">
+   <item>
+    <widget class="QLabel" name="productImage">
+     <property name="minimumSize">
+      <size>
+       <width>150</width>
+       <height>150</height>
+      </size>
+     </property>
+     <property name="pixmap">
+      <pixmap>:/Images/example_product.jpg</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="detailsLayout">
+     <item>
+      <widget class="QLabel" name="orderTitle">
+       <property name="text">
+        <string>订单编号：123456</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="customerInfo">
+       <property name="text">
+        <string>客户：张三 | 联系方式：12345678910</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="productInfo">
+       <property name="text">
+        <string>商品名称：商品示例 | 数量：2</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="orderAmount">
+       <property name="text">
+        <string>订单金额：¥200.00 | 优惠：¥20.00 | 实付：¥180.00</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="orderStatus">
+       <property name="text">
+        <string>订单状态：已发货</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Orientation::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Policy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>200</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="buttonLayout">
+     <item>
+      <widget class="QPushButton" name="viewDetailsButton">
+       <property name="text">
+        <string>查看详情</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="changeStatusButton">
+       <property name="text">
+        <string>修改状态</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

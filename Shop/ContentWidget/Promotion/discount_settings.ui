@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DiscountSettings</class>
+ <widget class="QWidget" name="DiscountSettings">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>2010</width>
+    <height>1060</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>折扣设置</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局样式 */
+QWidget {
+    background-color: #FFFFFF;
+    font-size: 20px;
+    color: #333333;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+}
+
+/* QLabel 样式 */
+QLabel {
+    font-size: 20px;
+    color: #333333;
+}
+
+QLabel#discountedPriceLabel {
+    color: #1E90FF; /* 天蓝色折扣价格 */
+    font-weight: bold;
+}
+
+/* QLineEdit 样式 */
+QLineEdit {
+    background-color: #F5F5F5;
+    border: 2px solid #1E90FF;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 20px;
+    color: #333333;
+}
+
+QLineEdit:focus {
+    border: 2px solid #63B8FF;
+}
+
+/* QSpinBox 和 QDoubleSpinBox 样式 */
+QSpinBox, QDoubleSpinBox {
+    border: 2px solid #1E90FF;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 20px;
+    color: #333333;
+}
+
+QSpinBox:focus, QDoubleSpinBox:focus {
+    border: 2px solid #63B8FF;
+}
+
+/* QPushButton 样式 */
+QPushButton {
+    background-color: #1E90FF;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+QPushButton:hover {
+    background-color: #63B8FF;
+    transform: scale(1.05);
+}
+
+QPushButton:pressed {
+    background-color: #4682B4;
+    transform: scale(0.95);
+}
+
+/* QTextEdit 样式 */
+QTextEdit {
+    border: 2px solid #1E90FF;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 20px;
+    color: #333333;
+    background-color: #F5F5F5;
+}
+
+/* QCheckBox 样式 */
+QCheckBox {
+    font-size: 20px;
+    color: #333333;
+}
+
+/* QDateTimeEdit 样式 */
+QDateTimeEdit {
+    border: 2px solid #1E90FF;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 20px;
+    color: #333333;
+}
+
+QDateTimeEdit:focus {
+    border: 2px solid #63B8FF;
+}
+</string>
+  </property>
+  <layout class="QHBoxLayout" name="mainLayout">
+   <item>
+    <layout class="QVBoxLayout" name="productInfoLayout">
+     <item>
+      <widget class="QLabel" name="productImage">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>300</height>
+        </size>
+       </property>
+       <property name="pixmap">
+        <pixmap>:/Images/example_product.jpg</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="currentPriceLabel">
+       <property name="text">
+        <string>当前价格：¥100.00</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="currentDiscountLabel">
+       <property name="text">
+        <string>当前折扣：20%</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="discountedPriceLabel">
+       <property name="text">
+        <string>折扣后价格：¥80.00</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="discountEditLayout">
+     <item>
+      <layout class="QFormLayout" name="discountFormLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="newDiscountLabel">
+         <property name="text">
+          <string>设置折扣比例 (%):</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="newDiscountSpinBox">
+         <property name="suffix">
+          <string>%</string>
+         </property>
+         <property name="minimum">
+          <number>0</number>
+         </property>
+         <property name="maximum">
+          <number>100</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="updatedPriceLabel">
+         <property name="text">
+          <string>折扣后价格：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="updatedPriceValue">
+         <property name="text">
+          <string>¥80.00</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_5">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Minimum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>80</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QFormLayout" name="timeFormLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="timeLabel">
+         <property name="text">
+          <string>设置生效时间：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <layout class="QHBoxLayout" name="timeLayout">
+         <item>
+          <widget class="QDateEdit" name="startTimeEdit">
+           <property name="displayFormat">
+            <string>yyyy-MM-dd HH:mm</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="toLabel">
+           <property name="text">
+            <string>至</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDateEdit" name="endTimeEdit">
+           <property name="displayFormat">
+            <string>yyyy-MM-dd HH:mm</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Minimum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>60</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="limitedTimeCheckbox">
+       <property name="text">
+        <string>是否限时折扣</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_6">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Minimum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>60</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QTextEdit" name="promotionDescription">
+       <property name="placeholderText">
+        <string>填写促销描述...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="actionButtonsLayout">
+       <item>
+        <widget class="QPushButton" name="saveButton">
+         <property name="text">
+          <string>保存</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="resetButton">
+         <property name="text">
+          <string>重置</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

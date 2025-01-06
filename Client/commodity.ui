@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Commodity</class>
+ <widget class="QWidget" name="Commodity">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>2000</width>
+    <height>1000</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>商品详细页</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局设置 */
+QWidget {
+    background-color: #FFFFFF; /* 白色背景 */
+    font-family: &quot;Microsoft YaHei&quot;;
+    font-size: 20px;
+}
+
+/* 标题字体 */
+QLabel {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333; /* 深灰色，确保良好的可读性 */
+}
+
+/* 商品标题 */
+#commodity_title {
+    font-size: 25px;
+    font-weight: bold;
+    color: #FF6A00; /* 橘色 */
+    margin: 20px 0;
+}
+
+/* 商品图片 */
+#commodity_image {
+    border: 1px solid #FF6A00; /* 橘色边框 */
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* 商品价格 */
+#commodity_price {
+    font-size: 25px;
+    color: #FF4500; /* 橘红色 */
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* 按钮样式 */
+QPushButton {
+    background-color: #FF6A00; /* 橘色 */
+    color: white;
+    border-radius: 5px;
+    padding: 8px 16px;
+    border: none;
+}
+
+QPushButton:hover {
+    background-color: #FF4500; /* 橘红色悬停效果 */
+}
+
+QPushButton:pressed {
+    background-color: #CC3700; /* 深橘色按下效果 */
+}
+
+/* 输入框样式 */
+QLineEdit {
+    border: 1px solid #CCCCCC; /* 灰色边框 */
+    border-radius: 5px;
+    padding: 6px;
+    font-size: 20px;
+    background-color: #FAFAFA; /* 浅灰色背景 */
+}
+
+/* 样式选择下拉框 */
+QComboBox {
+    border: 1px solid #FF6A00; /* 橘色边框 */
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #FAFAFA; /* 浅灰色背景 */
+    font-size: 20px;
+}
+
+QComboBox:hover {
+    border: 1px solid #FF4500; /* 橘红色边框悬停效果 */
+}
+
+QComboBox QAbstractItemView {
+    background-color: #FFFFFF;
+    border: 1px solid #FF6A00; /* 橘色边框 */
+}
+
+/* 商家头衔 */
+#seller_title {
+    font-size: 25px;
+    color: #FF6A00; /* 橘色 */
+    font-weight: bold;
+    padding: 10px;
+}
+
+/* 商品收藏按钮 */
+#collect_button {
+    background-color: #FF6A00; /* 橘色背景 */
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+#collect_button:hover {
+    background-color: #FF4500; /* 橘色悬停效果 */
+}
+
+#collect_button:pressed {
+    background-color: #CC3700; /* 橘色按下效果 */
+}
+
+/* 窗口中的分割线 */
+QFrame {
+    border: 1px solid #FF6A00; /* 橘色分割线 */
+    margin: 20px 0;
+}
+
+/* 滚动区域样式 */
+QScrollArea {
+    border: 1px solid #EEEEEE; /* 灰色边框 */
+    border-radius: 5px;
+    background-color: #FFFFFF; /* 白色背景 */
+}
+
+QScrollArea QScrollBar:vertical {
+    background: #F5F5F5; /* 浅灰色 */
+    width: 10px;
+    margin: 0px;
+}
+
+QScrollArea QScrollBar::handle:vertical {
+    background: #FF6A00; /* 橘色滚动条滑块 */
+    border-radius: 4px;
+}
+
+/* ToolButton 样式 */
+QToolButton {
+    background-color: #FF6A00; /* 橘色背景 */
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+QToolButton:hover {
+    background-color: #FF4500; /* 橘红色悬停效果 */
+}
+
+QToolButton:pressed {
+    background-color: #CC3700; /* 深橘色按下效果 */
+}
+
+/* 商品类型选择区域 */
+#product_type {
+    background-color: #FAFAFA; /* 浅灰色背景 */
+    border: 1px solid #FF6A00; /* 橘色边框 */
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* 样式选择标签 */
+#style_label {
+    font-size: 25px;
+    color: #333333; /* 深灰色 */
+    margin-right: 10px;
+}
+
+
+QSpinBox {
+    background-color: #FFFFFF; /* 主体背景为白色 */
+    border: 1px solid #FF6A00; /* 主体边框为橘色 */
+    border-radius: 5px; /* 圆角边框 */
+    padding: 5px; /* 内部文字与边框的间距 */
+    font-size: 20px; /* 字体大小 */
+    color: #333333; /* 字体颜色为深灰色 */
+}
+
+QSpinBox::up-button, QSpinBox::down-button {
+    background-color: #FF6A00; /* 按钮背景为橘色 */
+    subcontrol-origin: border; /* 子控件基于边框布局 */
+    border: none; /* 去掉按钮边框 */
+    width: 20px; /* 按钮宽度 */
+    border-radius: 3px; /* 边角圆润 */
+}
+
+QSpinBox::up-arrow, QSpinBox::down-arrow {
+    width: 8px; /* 箭头宽度 */
+    height: 8px; /* 箭头高度 */
+    color: #FFFFFF; /* 箭头为白色 */
+    image: none; /* 使用默认的绘制方式 */
+}
+
+QSpinBox::up-arrow {
+    margin: 2px; /* 向上箭头与按钮边距 */
+}
+
+QSpinBox::down-arrow {
+    margin: 2px; /* 向下箭头与按钮边距 */
+}
+
+QSpinBox::up-button:hover, QSpinBox::down-button:hover {
+    background-color: #FF4500; /* 悬停时按钮变为橘红色 */
+}
+
+QSpinBox::up-button:pressed, QSpinBox::down-button:pressed {
+    background-color: #CC3700; /* 按下时按钮变为深橘色 */
+}
+</string>
+  </property>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>110</y>
+     <width>801</width>
+     <height>841</height>
+    </rect>
+   </property>
+   <widget class="QLabel" name="productImage">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>30</y>
+      <width>701</width>
+      <height>681</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>商品图片展示区域</string>
+    </property>
+   </widget>
+   <widget class="QWidget" name="widget_4" native="true">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>720</y>
+      <width>431</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QPushButton" name="previousPage">
+       <property name="text">
+        <string>上一页</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="widget_5" native="true">
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QLabel" name="page">
+          <property name="text">
+           <string>页码</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="nextPage">
+       <property name="text">
+        <string>下一页</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="merchantWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>10</y>
+     <width>1901</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="1">
+     <widget class="QLabel" name="ShopName">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="text">
+       <string>店铺名称：  德芙</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="4">
+     <widget class="QPushButton" name="EnterClient">
+      <property name="text">
+       <string>进入店铺</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QPushButton" name="ContactBusiness">
+      <property name="text">
+       <string>联系商家</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="ClientLabel">
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei</family>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="res.qrc">:/Images/business.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLabel" name="label_2">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <family>Microsoft YaHei</family>
+        <pointsize>-1</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>自营           金标认证            8年老店	           905.2人关注</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="Return">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>110</y>
+     <width>91</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>返回</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="productInfoWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>1070</x>
+     <y>150</y>
+     <width>831</width>
+     <height>421</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="productName">
+      <property name="text">
+       <string>商品名称	</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="productPrice">
+      <property name="text">
+       <string>价格</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="delivery">
+      <property name="text">
+       <string>配送</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="guarantee">
+      <property name="text">
+       <string>保障</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QSpinBox" name="productQuantity">
+      <property name="toolTip">
+       <string>选择商品数量</string>
+      </property>
+      <property name="minimum">
+       <number>1</number>
+      </property>
+      <property name="maximum">
+       <number>1000</number>
+      </property>
+      <property name="singleStep">
+       <number>1</number>
+      </property>
+      <property name="value">
+       <number>1</number>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="verticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>10</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QComboBox" name="styleComboBox">
+      <property name="currentText">
+       <string>绿色款</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>绿色款</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>灰色款</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>黑色款</string>
+       </property>
+      </item>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="addToShoppingCart">
+   <property name="geometry">
+    <rect>
+     <x>1390</x>
+     <y>800</y>
+     <width>211</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>加入购物车</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="purchase">
+   <property name="geometry">
+    <rect>
+     <x>1110</x>
+     <y>800</y>
+     <width>201</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>直接购买</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>1780</x>
+     <y>800</y>
+     <width>111</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>收藏</string>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
+ <connections/>
+</ui>

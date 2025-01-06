@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FindGoodCommodities</class>
+ <widget class="QWidget" name="FindGoodCommodities">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>2000</width>
+    <height>1000</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>商品浏览</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局设置 */
+QWidget {
+    background-color: #FFFFFF;
+    font-family: &quot;Microsoft YaHei&quot;;
+    font-size: 20px;
+}
+
+/* 标题字体 */
+QLabel {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* 按钮样式 */
+QPushButton {
+    background-color: #FF6A00;
+    color: white;
+    border-radius: 5px;
+    padding: 8px 16px;
+    border: none;
+}
+
+QPushButton:hover {
+    background-color: #FF4500;
+}
+
+QPushButton:pressed {
+    background-color: #CC3700;
+}
+
+
+/* 搜索栏样式 */
+QLineEdit {
+    border: 2px solid #FF6A00;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 20px;
+    background-color: #FFFFFF;
+}
+
+QLineEdit::placeholder {
+    color: #AAAAAA;
+}
+
+
+
+/* 滚动区样式 */
+QScrollArea {
+    border: 1px solid #EEEEEE;
+    background-color: #FFFFFF;
+}
+
+QScrollArea QScrollBar:vertical {
+    background: #F5F5F5;
+    width: 10px;
+}
+
+QScrollArea QScrollBar::handle:vertical {
+    background: #FF6A00;
+    border-radius: 5px;
+}
+
+
+/* 商品模块样式 */
+QLabel {
+    background-color: #FFF2E6;
+    border: 1px solid #FF6A00;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+QLabel:hover {
+    background-color: #FFEDD6;
+}</string>
+  </property>
+  <widget class="QWidget" name="goods_category" native="true">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>50</y>
+     <width>201</width>
+     <height>871</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="categoryLayout">
+    <item>
+     <widget class="QPushButton" name="btn_clothing">
+      <property name="text">
+       <string>精品女装</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btn_furniture">
+      <property name="text">
+       <string>家具</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="btn_pet">
+      <property name="text">
+       <string>宠物</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="search_widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>0</y>
+     <width>1270</width>
+     <height>80</height>
+    </rect>
+   </property>
+   <widget class="QLineEdit" name="productSearch">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>1141</width>
+      <height>51</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="searchButton">
+    <property name="geometry">
+     <rect>
+      <x>1160</x>
+      <y>10</y>
+      <width>91</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>搜索</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QScrollArea" name="goodsScrollArea">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>100</y>
+     <width>1720</width>
+     <height>890</height>
+    </rect>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1718</width>
+      <height>888</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

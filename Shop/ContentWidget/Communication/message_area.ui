@@ -1,0 +1,213 @@
+<ui version="4.0">
+ <class>MessageArea</class>
+ <widget class="QWidget" name="MessageArea">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1530</width>
+    <height>590</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+/* 全局设置 */
+QWidget {
+    background-color: #FFFFFF; /* 背景白色 */
+    font-family: "Microsoft YaHei";
+    font-size: 14px;
+    color: #333333; /* 字体颜色 */
+}
+
+/* 按钮样式 */
+QPushButton {
+    background-color: #FF6A00; /* 按钮背景橙色 */
+    color: white; /* 文字颜色 */
+    border-radius: 8px; /* 圆角 */
+    padding: 8px 16px; /* 内边距 */
+    font-size: 14px;
+    border: 2px solid transparent; /* 默认透明边框 */
+}
+
+QPushButton:hover {
+    background-color: #FF4500; /* 悬停橙红色 */
+    border: 2px solid #FF6A00; /* 边框 */
+}
+
+QPushButton:pressed {
+    background-color: #CC3700; /* 按下深橙色 */
+}
+
+QPushButton:disabled {
+    background-color: #F5F5F5; /* 灰色背景 */
+    color: #AAAAAA; /* 字体灰色 */
+    border: 2px solid #DDDDDD; /* 边框 */
+}
+
+/* 输入框样式 */
+QLineEdit, QTextEdit {
+    border: 2px solid #FF6A00; /* 橙色边框 */
+    border-radius: 5px; /* 圆角 */
+    padding: 6px 10px;
+    font-size: 14px;
+    color: #333333;
+}
+
+QLineEdit:focus, QTextEdit:focus {
+    border: 2px solid #FF4500; /* 聚焦时边框橙红色 */
+    background-color: #FFFFFF;
+}
+
+/* 标签样式 */
+QLabel {
+    background-color: transparent;
+    color: #333333; /* 字体颜色 */
+    font-size: 14px;
+    font-weight: normal;
+}
+
+QLabel#titleLabel {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FF6A00; /* 标题橙色 */
+    border-bottom: 2px solid #FFEDD6; /* 橙色下边框 */
+    padding: 5px 0;
+}
+
+/* 滚动条样式 */
+QScrollBar:vertical {
+    background: #F5F5F5; /* 滚动条背景灰色 */
+    width: 12px;
+    border-radius: 6px;
+    margin: 2px 0;
+}
+
+QScrollBar::handle:vertical {
+    background: #FF6A00; /* 滚动条橙色 */
+    border-radius: 6px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #FF4500; /* 悬停橙红色 */
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+QScrollBar:horizontal {
+    background: #F5F5F5;
+    height: 12px;
+    border-radius: 6px;
+}
+
+QScrollBar::handle:horizontal {
+    background: #FF6A00;
+    border-radius: 6px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: #FF4500;
+}
+
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    width: 0px;
+}
+
+/* 列表控件样式 */
+QListWidget {
+    background-color: #FFF2E6; /* 浅橘色背景 */
+    border: 1px solid #FF6A00; /* 橙色边框 */
+    border-radius: 5px;
+    padding: 5px;
+}
+
+QListWidget::item {
+    background-color: transparent;
+    padding: 10px;
+    font-size: 14px;
+    color: #333333;
+}
+
+QListWidget::item:hover {
+    background-color: #FFEDD6; /* 浅橘色悬停背景 */
+    border-radius: 5px;
+}
+
+QListWidget::item:selected {
+    background-color: #FF6A00; /* 橘色选中背景 */
+    color: white; /* 选中文字白色 */
+    border-radius: 5px;
+}
+
+/* 工具按钮样式 */
+QToolButton {
+    background-color: #FF6A00;
+    color: white;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+QToolButton:hover {
+    background-color: #FF4500;
+}
+
+QToolButton:pressed {
+    background-color: #CC3700;
+}
+
+/* 分割线样式 */
+QFrame#line {
+    background-color: #FF6A00;
+    height: 2px;
+    border: none;
+    margin: 5px 0;
+}
+
+/* 表情和功能按钮 */
+QPushButton#emojiButton, QPushButton#attachmentButton {
+    background-color: #FFFFFF;
+    border: 2px solid #FF6A00;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 18px;
+    color: #FF6A00;
+}
+
+QPushButton#emojiButton:hover, QPushButton#attachmentButton:hover {
+    background-color: #FFEDD6;
+}
+
+QPushButton#emojiButton:pressed, QPushButton#attachmentButton:pressed {
+    background-color: #FF6A00;
+    color: white;
+}
+   </string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QScrollArea" name="messageScrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1510</width>
+        <height>570</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Contact</class>
+ <widget class="QWidget" name="Contact">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>684</width>
+    <height>168</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+/* 联系人背景样式 */
+QWidget#Contact {
+    background-color: #FFFFFF;  /* 白色背景 */
+    border: 1px solid #E5E5E5;
+    border-radius: 8px;
+    padding: 10px;
+}
+QWidget#Contact:hover {
+    background-color: rgba(0, 191, 255, 0.1);  /* 天蓝色悬停背景 */
+}
+QWidget#Contact[selected="true"] {
+    background-color: rgba(0, 191, 255, 0.2);  /* 天蓝色选中背景 */
+}
+
+/* 头像样式 */
+QLabel#avatar {
+    border-radius: 50px;
+    background-color: #CCCCCC;
+    border: 1px solid #E5E5E5;
+}
+
+/* 名字样式 */
+QLabel#nameLabel {
+    font-size: 20px;  /* 修改字体大小为20px */
+    font-weight: bold;
+    color: #333333;
+    padding-left: 10px;
+}
+
+/* 未读消息标记样式 */
+QLabel#unreadCount {
+    font-size: 20px;  /* 修改字体大小为20px */
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: #00BFFF;  /* 天蓝色背景 */
+    border-radius: 10px;
+    padding: 2px 6px;
+    min-width: 20px;
+    text-align: center;
+}
+   </string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QLabel" name="avatar">
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>100</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>100</width>
+       <height>100</height>
+      </size>
+     </property>
+     <property name="pixmap">
+      <pixmap>:/default_avatar.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="infoLayout">
+     <item>
+      <widget class="QLabel" name="nameLabel">
+       <property name="text">
+        <string>客户名称</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignVCenter|Qt::AlignLeft</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="unreadCount">
+       <property name="text">
+        <string>0</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="visible">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <connections/>
+</ui>

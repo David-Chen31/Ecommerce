@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ns1="http://service.linexus.com/"
+    xmlns:ns2="http://dao.linexus.com/">
+ <SOAP-ENV:Body>
+   <ns2:getUnreadMessageFromShop>
+    <arg0>
+     <clientBought>0</clientBought>
+     <clientEmail></clientEmail>
+     <clientId>0</clientId>
+     <clientImage></clientImage>
+     <clientName></clientName>
+     <clientPhone></clientPhone>
+     <clientPwd></clientPwd>
+     <clientSignTime>2025-01-05T12:46:22Z</clientSignTime>
+    </arg0>
+   </ns2:getUnreadMessageFromShop>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

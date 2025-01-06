@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ProductCard</class>
+ <widget class="QWidget" name="ProductCard">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>218</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+   <item>
+    <widget class="QPushButton" name="JumpToEditPage">
+     <property name="minimumSize">
+      <size>
+       <width>200</width>
+       <height>200</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+       QPushButton {
+           border: none;
+           background-color: #FFFFFF;
+       }
+       QPushButton:hover {
+           background-color: rgb(174, 255, 252);
+       }
+      </string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="productNameLabel">
+     <property name="styleSheet">
+      <string notr="true">
+       QLabel {
+           font-size: 20px;
+           font-weight: bold;
+           color: #333333;
+       }
+      </string>
+     </property>
+     <property name="text">
+      <string>商品名称</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="productPriceLabel">
+     <property name="styleSheet">
+      <string notr="true">
+       QLabel {
+           font-size: 20px;
+           color: #FF4500;
+       }
+      </string>
+     </property>
+     <property name="text">
+      <string>¥100.00</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

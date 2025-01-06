@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>LogIn</class>
+ <widget class="QWidget" name="LogIn">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>650</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>商家登录</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局样式 */
+QWidget {
+    background-color: #FFFFFF; /* 白色背景 */
+    font-family: &quot;Microsoft YaHei&quot;;
+    font-size: 16px;
+}
+
+/* Logo 样式 */
+QLabel#LogoLabel {
+    font-size: 22px;
+    font-weight: bold;
+    color: #0099FF; /* 天蓝色字体 */
+    border: 2px solid #0099FF; /* 天蓝色边框 */
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #E6F7FF; /* 浅天蓝背景 */
+    text-align: center;
+}
+
+/* 输入框样式 */
+QLineEdit {
+    border: 1px solid #CCCCCC; /* 灰色边框 */
+    border-radius: 5px;
+    padding: 6px;
+    background-color: #F7FAFD; /* 浅白蓝背景 */
+}
+
+QLineEdit:focus {
+    border: 2px solid #0099FF; /* 聚焦天蓝边框 */
+}
+
+/* 按钮样式 */
+QPushButton {
+    background-color: #0099FF; /* 天蓝色背景 */
+    color: white; /* 白色文字 */
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #007ACC; /* 深蓝色悬停 */
+}
+
+QPushButton:pressed {
+    background-color: #005F99; /* 更深蓝色按下效果 */
+}
+
+/* 复选框样式 */
+QRadioButton {
+    font-size: 14px;
+    color: #555555; /* 中灰色字体 */
+}
+
+QRadioButton::indicator {
+    width: 16px;
+    height: 16px;
+}
+
+QRadioButton::indicator:checked {
+    background-color: #0099FF; /* 天蓝色选中背景 */
+    border: 1px solid #0099FF; /* 天蓝色边框 */
+}
+</string>
+  </property>
+  <widget class="QLabel" name="LogoLabel">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>50</y>
+     <width>191</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>商家平台 LOGO</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QWidget" name="FormWidget">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>230</y>
+     <width>351</width>
+     <height>391</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="FormLayout">
+    <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="2" column="0">
+       <widget class="QLabel" name="PasswordLabel">
+        <property name="text">
+         <string>密码:   </string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="UsernameLabel">
+        <property name="text">
+         <string>账户名:</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="UsernameLineEdit">
+        <property name="placeholderText">
+         <string>请输入账户名</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="PasswordLineEdit">
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+        <property name="placeholderText">
+         <string>请输入密码</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Fixed</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>40</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QRadioButton" name="TermsOfServiceRadioButton">
+      <property name="text">
+       <string>协议</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <spacer name="VerticalSpacer">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeType">
+       <enum>QSizePolicy::Preferred</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>20</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <widget class="QWidget" name="widget" native="true">
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Preferred</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="RegisterButton">
+         <property name="text">
+          <string>没有账户？注册</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="LogInButton">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string>登录</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <spacer name="horizontalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Preferred</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

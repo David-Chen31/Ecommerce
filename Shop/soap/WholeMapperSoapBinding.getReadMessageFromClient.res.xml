@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
+    xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:ns1="http://service.linexus.com/"
+    xmlns:ns2="http://dao.linexus.com/">
+ <SOAP-ENV:Body>
+  <ns2:getReadMessageFromClientResponse>
+   <return>
+    <msgClientId>0</msgClientId>
+    <msgClientName></msgClientName>
+    <msgContent></msgContent>
+    <msgFrom>0</msgFrom>
+    <msgId>0</msgId>
+    <msgShopId>0</msgShopId>
+    <msgShopName></msgShopName>
+    <msgTime>2025-01-05T12:46:22Z</msgTime>
+    <readStatus>0</readStatus>
+   </return>
+  </ns2:getReadMessageFromClientResponse>
+ </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

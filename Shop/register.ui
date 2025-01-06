@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Register</class>
+ <widget class="QWidget" name="Register">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>550</width>
+    <height>660</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>商家注册</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局样式 */
+QWidget {
+    background-color: #FFFFFF; /* 白色背景 */
+    font-family: &quot;Microsoft YaHei&quot;;
+    font-size: 16px;
+}
+
+/* Logo 样式 */
+QLabel#LogoLabel {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0099FF; /* 天蓝色字体 */
+    border: 2px solid #0099FF; /* 天蓝色边框 */
+    border-radius: 10px; /* 圆角边框 */
+    background-color: #E6F7FF; /* 浅天蓝背景 */
+    padding: 10px;
+    text-align: center;
+}
+
+/* 欢迎标题样式 */
+QLabel#WelcomeLabel {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333; /* 深灰色字体 */
+}
+
+/* 输入框样式 */
+QLineEdit {
+    border: 1px solid #CCCCCC; /* 浅灰边框 */
+    border-radius: 5px;
+    padding: 6px;
+    font-size: 16px;
+    background-color: #F7FAFD; /* 浅白蓝背景 */
+}
+
+QLineEdit:focus {
+    border: 2px solid #0099FF; /* 聚焦天蓝边框 */
+}
+
+/* 按钮样式 */
+QPushButton {
+    background-color: #0099FF; /* 天蓝色按钮背景 */
+    color: white; /* 白色文字 */
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color: #007ACC; /* 深蓝色悬停背景 */
+}
+
+QPushButton:pressed {
+    background-color: #005F99; /* 深蓝色按下背景 */
+}
+
+/* 返回按钮 */
+QPushButton#GoBack {
+    background-color: transparent; /* 透明背景 */
+    color: #0099FF; /* 天蓝色文字 */
+    font-size: 14px;
+    border: none;
+    text-decoration: underline;
+}
+
+QPushButton#GoBack:hover {
+    color: #005F99; /* 深蓝色悬停 */
+}
+
+/* 表单标签样式 */
+QLabel {
+    font-size: 16px;
+    color: #333333; /* 深灰色字体 */
+}
+
+/* 用户协议复选框样式 */
+QRadioButton#AgreementRadioButton {
+    font-size: 14px;
+    color: #555555; /* 中灰色字体 */
+}
+
+QRadioButton::indicator {
+    width: 16px;
+    height: 16px;
+}
+
+QRadioButton::indicator:checked {
+    background-color: #0099FF; /* 天蓝色选中背景 */
+    border: 1px solid #0099FF; /* 天蓝色边框 */
+}
+
+/* 版本号样式 */
+QLabel#VersionLabel {
+    font-size: 12px;
+    color: #AAAAAA; /* 浅灰色字体 */
+}
+</string>
+  </property>
+  <widget class="QLabel" name="LogoLabel">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>30</y>
+     <width>100</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>LOGO</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="GoBack">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>30</y>
+     <width>121</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>返回登录</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="WelcomeLabel">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>80</y>
+     <width>200</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>欢迎注册商家账号</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QWidget" name="FormWidget">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>140</y>
+     <width>450</width>
+     <height>400</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="FormLayout">
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="ConfirmPwdLineEdit">
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
+      <property name="placeholderText">
+       <string>再次输入密码</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="BusinessLicenseLineEdit">
+      <property name="placeholderText">
+       <string>请输入营业执照编号</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="PasswordLabel">
+      <property name="text">
+       <string>密码</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="ConfirmPwdLabel">
+      <property name="text">
+       <string>确认密码</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="ShopNameLabel">
+      <property name="text">
+       <string>店铺名称</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="BusinessLicenseLabel">
+      <property name="text">
+       <string>营业执照编号</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="PasswordLineEdit">
+      <property name="echoMode">
+       <enum>QLineEdit::Password</enum>
+      </property>
+      <property name="placeholderText">
+       <string>请输入密码</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="ShopNameLineEdit">
+      <property name="placeholderText">
+       <string>请输入店铺名称</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="EmailLabel">
+      <property name="text">
+       <string>邮箱</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLineEdit" name="EmailLineEdit">
+      <property name="placeholderText">
+       <string>请输入邮箱</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QRadioButton" name="AgreementRadioButton">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>560</y>
+     <width>240</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>我已阅读并同意商家协议</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="RegisterButton">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>600</y>
+     <width>161</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>立即注册</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="VersionLabel">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>660</y>
+     <width>71</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>版本号</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

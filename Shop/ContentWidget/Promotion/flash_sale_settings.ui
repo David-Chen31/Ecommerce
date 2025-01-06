@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FlashSaleSettings</class>
+ <widget class="QWidget" name="FlashSaleSettings">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>2010</width>
+    <height>1060</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>限时秒杀设置</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局样式 */
+QWidget {
+    background-color: #FFFFFF;
+    font-size: 20px;
+    color: #333333;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+}
+
+/* QLabel 样式 */
+QLabel {
+    font-size: 20px;
+    color: #333333;
+}
+
+/* QLineEdit 样式 */
+QLineEdit {
+    background-color: #F5F5F5;
+    border: 2px solid #1E90FF;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 20px;
+    color: #333333;
+}
+
+QLineEdit:focus {
+    border: 2px solid #63B8FF;
+}
+
+/* QSpinBox 和 QDoubleSpinBox 样式 */
+QSpinBox, QDoubleSpinBox {
+    border: 2px solid #1E90FF;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 20px;
+    color: #333333;
+}
+
+QSpinBox:focus, QDoubleSpinBox:focus {
+    border: 2px solid #63B8FF;
+}
+
+/* QPushButton 样式 */
+QPushButton {
+    background-color: #1E90FF;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+QPushButton:hover {
+    background-color: #63B8FF;
+    transform: scale(1.05);
+}
+
+QPushButton:pressed {
+    background-color: #4682B4;
+    transform: scale(0.95);
+}
+
+/* QTextEdit 样式 */
+QTextEdit {
+    border: 2px solid #1E90FF;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 20px;
+    color: #333333;
+    background-color: #F5F5F5;
+}
+
+/* QDateTimeEdit 样式 */
+QDateTimeEdit {
+    border: 2px solid #1E90FF;
+    border-radius: 8px;
+    padding: 5px;
+    font-size: 20px;
+    color: #333333;
+}
+
+QDateTimeEdit:focus {
+    border: 2px solid #63B8FF;
+}
+</string>
+  </property>
+  <layout class="QHBoxLayout" name="mainLayout">
+   <item>
+    <layout class="QVBoxLayout" name="leftLayout">
+     <item>
+      <widget class="QLabel" name="productImage">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>300</height>
+        </size>
+       </property>
+       <property name="pixmap">
+        <pixmap>:/Images/example_product.jpg</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="flashSaleTime">
+       <property name="text">
+        <string>秒杀时间：2023-12-01 12:00 至 2023-12-01 14:00</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Minimum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="flashSalePrice">
+       <property name="text">
+        <string>秒杀价格：¥50.00</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Minimum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="originalPrice">
+       <property name="text">
+        <string>商品原价：¥100.00</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Minimum</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="stock">
+       <property name="text">
+        <string>剩余库存：50</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_5">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="sold">
+       <property name="text">
+        <string>已售出：20</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_6">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="status">
+       <property name="text">
+        <string>状态：未开始</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QVBoxLayout" name="rightLayout">
+     <item>
+      <layout class="QFormLayout" name="priceFormLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="setPriceLabel">
+         <property name="text">
+          <string>设置秒杀价格：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QDoubleSpinBox" name="setPriceSpinBox">
+         <property name="prefix">
+          <string>¥</string>
+         </property>
+         <property name="minimum">
+          <double>0.000000000000000</double>
+         </property>
+         <property name="maximum">
+          <double>99999.000000000000000</double>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_7">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QFormLayout" name="stockFormLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="setStockLabel">
+         <property name="text">
+          <string>设置秒杀库存：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="setStockSpinBox">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_8">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QFormLayout" name="timeFormLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="setTimeLabel">
+         <property name="text">
+          <string>设置秒杀时间：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <layout class="QHBoxLayout" name="timeLayout">
+         <item>
+          <widget class="QDateTimeEdit" name="startTimeEdit">
+           <property name="displayFormat">
+            <string>yyyy-MM-dd HH:mm</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="toLabel">
+           <property name="text">
+            <string>至</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDateTimeEdit" name="endTimeEdit">
+           <property name="displayFormat">
+            <string>yyyy-MM-dd HH:mm</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_9">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <layout class="QFormLayout" name="limitFormLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="limitLabel">
+         <property name="text">
+          <string>每人限购：</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="limitSpinBox">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <spacer name="verticalSpacer_10">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QTextEdit" name="descriptionTextEdit">
+       <property name="placeholderText">
+        <string>填写活动描述...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="actionButtonsLayout">
+       <item>
+        <widget class="QPushButton" name="saveButton">
+         <property name="text">
+          <string>保存</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="resetButton">
+         <property name="text">
+          <string>重置</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

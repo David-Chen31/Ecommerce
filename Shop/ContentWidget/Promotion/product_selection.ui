@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ProductSelection</class>
+ <widget class="QWidget" name="ProductSelection">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>2010</width>
+    <height>1060</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>商品选择</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局背景颜色为白色，字体颜色为深灰色 */
+QWidget {
+    background-color: #FFFFFF;
+    font-size: 20px;
+    color: #333333;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+}
+
+/* QLineEdit 样式 */
+QLineEdit {
+    background-color: #F5F5F5;
+    border: 2px solid #1E90FF; /* 天蓝色边框 */
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 20px;
+    color: #333333;
+}
+
+QLineEdit:focus {
+    border: 2px solid #63B8FF; /* 聚焦时浅天蓝色 */
+}
+
+/* QPushButton 样式 */
+QPushButton {
+    background-color: #1E90FF; /* 天蓝色背景 */
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+QPushButton:hover {
+    background-color: #63B8FF; /* 浅天蓝色背景 */
+    transform: scale(1.05); /* 放大效果 */
+}
+
+QPushButton:pressed {
+    background-color: #4682B4; /* 深蓝色背景 */
+    transform: scale(0.95); /* 缩小效果 */
+}
+
+/* QScrollArea 样式 */
+QScrollArea {
+    border: 1px solid #1E90FF;
+    background-color: #F5F5F5; /* 浅灰色背景 */
+}
+
+QScrollArea &gt; QWidget {
+    background-color: #FFFFFF;
+}
+
+QScrollBar:vertical {
+    background: #E0E0E0; /* 滚动条背景浅灰色 */
+    width: 14px;
+    border-radius: 7px;
+}
+
+QScrollBar::handle:vertical {
+    background: #1E90FF; /* 滚动条天蓝色 */
+    border-radius: 7px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #63B8FF; /* 悬浮时滚动条浅天蓝色 */
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    background: transparent;
+    border: none;
+    height: 0px;
+}
+
+/* QScrollArea 内部内容样式 */
+QScrollArea QWidget {
+    background-color: #FFFFFF;
+    border: none;
+}
+
+/* QPushButton 布局间距 */
+QHBoxLayout &gt; QPushButton {
+    margin: 8px;
+}
+</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <layout class="QHBoxLayout" name="searchLayout">
+     <item>
+      <widget class="QLineEdit" name="searchBox">
+       <property name="placeholderText">
+        <string>输入商品名称或关键词进行搜索...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="searchButton">
+       <property name="text">
+        <string>搜索</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item row="1" column="0">
+    <widget class="QScrollArea" name="goodsScrollArea">
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="productListWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1998</width>
+        <height>930</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QWidget" name="widget" native="true">
+     <layout class="QGridLayout" name="gridLayout_2">
+      <item row="0" column="0">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Preferred</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="1">
+       <widget class="QPushButton" name="confirmSelectionButton">
+        <property name="text">
+         <string>确认选择</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Preferred</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

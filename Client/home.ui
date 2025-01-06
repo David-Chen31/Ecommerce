@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>home</class>
+ <widget class="QWidget" name="home">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>2000</width>
+    <height>1000</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局样式 */
+QWidget {
+    background-color: #FFFFFF;
+    font-family: &quot;Microsoft YaHei&quot;;
+    font-size: 20px;
+}
+
+/* 搜索栏样式 */
+QLineEdit {
+    border: 2px solid #FF6A00;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 20px;
+    background-color: #FFFFFF;
+}
+
+QLineEdit::placeholder {
+    color: #AAAAAA;
+}
+
+/* 按钮样式 */
+QPushButton {
+    background-color: #FF6A00;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+QPushButton:hover {
+    background-color: #FF4500;
+}
+
+QPushButton:pressed {
+    background-color: #CC3700;
+}
+
+/* 左侧广告栏样式 */
+QLabel#ad1, QLabel#ad2 {
+    border: 1px solid #FF6A00;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+/* 商品模块样式 */
+QLabel {
+    background-color: #FFF2E6;
+    border: 1px solid #FF6A00;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+QLabel:hover {
+    background-color: #FFEDD6;
+}
+
+/* 滚动区样式 */
+QScrollArea {
+    border: 1px solid #EEEEEE;
+    background-color: #FFFFFF;
+}
+
+QScrollArea QScrollBar:vertical {
+    background: #F5F5F5;
+    width: 10px;
+}
+
+QScrollArea QScrollBar::handle:vertical {
+    background: #FF6A00;
+    border-radius: 5px;
+}
+
+</string>
+  </property>
+  <widget class="QWidget" name="advertising_widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>150</y>
+     <width>221</width>
+     <height>831</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="1" column="0">
+     <widget class="QLabel" name="advertising2">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="res.qrc">:/image/6.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="advertising1">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="res.qrc">:/image/3.jpg</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QScrollArea" name="goodsScrollArea">
+   <property name="geometry">
+    <rect>
+     <x>311</x>
+     <y>40</y>
+     <width>1671</width>
+     <height>951</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1669</width>
+      <height>949</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="my_center" native="true">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>30</y>
+     <width>261</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <widget class="QToolButton" name="profilePhoto">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>0</y>
+      <width>91</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="GreetLabel">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>20</y>
+      <width>131</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Hi~下午好</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
+ <connections/>
+</ui>

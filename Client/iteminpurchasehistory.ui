@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ItemInPurchaseHistory</class>
+ <widget class="QWidget" name="ItemInPurchaseHistory">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1826</width>
+    <height>160</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局设置 */
+QWidget {
+    background-color: #FFFFFF;
+    font-family: &quot;Microsoft YaHei&quot;;
+    font-size: 20px;
+}
+
+/* 商品名称字体 */
+QLabel {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333;
+}
+
+/* 按钮样式 */
+QPushButton {
+    background-color: #FF6A00;
+    color: white;
+    border-radius: 5px;
+    padding: 8px 16px;
+    border: none;
+    font-size: 20px;
+}
+
+QPushButton:hover {
+    background-color: #FF4500;
+}
+
+QPushButton:pressed {
+    background-color: #CC3700;
+}
+
+/* 商品图片 */
+QLabel[name=&quot;productImage&quot;] {
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;
+}
+
+/* 商品数量和价格标签 */
+QLabel[name=&quot;productQuantity&quot;],
+QLabel[name=&quot;productPrice&quot;] {
+    font-size: 20px;
+    color: #555555;
+}
+
+/* 删除按钮 */
+QPushButton[name=&quot;deleteButton&quot;] {
+    background-color: #FF4C00;
+    color: white;
+    border-radius: 5px;
+    padding: 6px 12px;
+    border: none;
+}
+
+QPushButton[name=&quot;deleteButton&quot;]:hover {
+    background-color: #FF3200;
+}
+
+QPushButton[name=&quot;deleteButton&quot;]:pressed {
+    background-color: #CC2600;
+}
+
+/* 勾选框样式 */
+QCheckBox {
+    font-size: 20px;
+    color: #333333;
+    padding: 6px;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #FF6A00;
+    border: 2px solid #FF6A00;
+}
+
+QCheckBox::indicator:unchecked {
+    background-color: #FFFFFF;
+    border: 2px solid #CCCCCC;
+}
+
+/* 整体布局设置 */
+QHBoxLayout {
+    spacing: 10px; /* 控件间距 */
+}
+</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="productDetailsLayout_2">
+     <item>
+      <widget class="QLabel" name="productImage">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>99</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>290</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>273</width>
+         <height>165</height>
+        </size>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="productName">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>320</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>273</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>商品名称</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="productStyle">
+       <property name="minimumSize">
+        <size>
+         <width>320</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>273</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>款式</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="productQuantity">
+       <property name="minimumSize">
+        <size>
+         <width>320</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>273</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>数量: 1</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="productPrice">
+       <property name="minimumSize">
+        <size>
+         <width>320</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>价格: 100元</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Orientation::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>134</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QPushButton" name="refund">
+     <property name="text">
+      <string>退货退款</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Orientation::Horizontal</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Policy::Minimum</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QPushButton" name="deleteButton">
+     <property name="text">
+      <string>删除</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

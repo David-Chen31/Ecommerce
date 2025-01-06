@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Root</class>
+ <widget class="QWidget" name="Root">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>2300</width>
+    <height>1200</height>
+   </rect>
+  </property>
+  <property name="mouseTracking">
+   <bool>true</bool>
+  </property>
+  <property name="windowTitle">
+   <string>商家管理系统</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局背景色为白色，字体颜色为深灰色，字体大小为20 */
+QWidget {
+    background-color: #FFFFFF;
+    font-size: 20px;
+    color: #333333;
+    font-family: &quot;Segoe UI&quot;, sans-serif;
+}
+
+/* 设置QLabel的基本样式 */
+QLabel {
+    font-size: 20px;
+    color: #333333;
+    font-weight: normal;
+    padding: 5px;
+}
+
+/* 设置标题标签的样式 */
+QLabel#merchantName {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1E90FF; /* 天蓝色 */
+}
+
+/* 设置菜单树（QTreeWidget） */
+QTreeWidget {
+    background-color: #FFFFFF;
+    border: 1px solid #1E90FF;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: normal;
+    color: #333333;
+}
+
+
+QTreeWidget::item {
+
+    padding: 12px;
+
+}
+
+
+
+QTreeWidget::item:hover {
+
+    background-color: #E6F7FF;  /* 悬浮时的背景色 */
+
+    border-color: #1E90FF;
+
+}
+
+
+
+QTreeWidget::item:selected {
+
+    background-color: #1E90FF;
+
+    color: white;
+
+    border-color: #1E90FF;
+
+}
+
+
+/* 设置QTreeWidget项默认样式 */
+QTreeWidget::item {
+    font-size: 20px;
+    padding: 12px;
+    min-height: 40px; /* 增加每项的高度 */
+    background-color: transparent; /* 默认背景透明 */
+    color: #333333; /* 默认字体颜色 */
+
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+
+
+/* 设置QLineEdit（搜索框）的样式 */
+QLineEdit {
+    background-color: #FFFFFF;
+    border: 1px solid #1E90FF;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 20px;
+}
+
+QLineEdit:focus {
+    border: 1px solid #63B8FF;
+}
+
+/* 设置QPushButton（按钮）的样式 */
+QPushButton {
+    background-color: #1E90FF;
+    color: white;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    min-width: 120px;
+}
+
+QPushButton:hover {
+    background-color: #63B8FF;  /* 悬浮时的背景色 */
+}
+
+QPushButton:pressed {
+    background-color: #4682B4;  /* 按下时的背景色 */
+}
+
+/* 设置状态标签的样式 */
+QLabel#statusLabel {
+    font-size: 20px;
+    color: #333333;
+}
+
+/* 设置版权标签的样式 */
+QLabel#copyrightLabel {
+    font-size: 20px;
+    color: #AAAAAA;
+    text-align: center;
+}
+
+/* 设置水平间隔的样式 */
+QSpacerItem {
+    background-color: transparent;
+}
+
+/* 设置退出登录按钮的样式 */
+QPushButton#logoutButton {
+    background-color: #1E90FF;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+QPushButton#logoutButton:hover {
+    background-color: #63B8FF;  /* 悬浮时的背景色 */
+}
+
+/* 设置帮助按钮的样式 */
+QPushButton#helpButton {
+    background-color: transparent;
+    font-size: 20px;
+    color: #1E90FF;
+}
+
+QPushButton#helpButton:hover {
+    text-decoration: underline;
+}
+
+/* 设置整个窗口的阴影效果 */
+
+/* 设置QTreeWidget的字体和选项 */
+QTreeWidget::item {
+    font-size: 20px;
+    padding: 10px;
+    min-height: 40px;  /* 增加每项的高度，使其更加分散 */
+}
+
+/* 设置QTreeWidget项的选中效果 */
+QTreeWidget::item:selected {
+    background-color: #1E90FF;  /* 选中时背景色 */
+    color: white;  /* 选中时文字颜色 */
+}
+
+/* 设置QLabel的图标显示 */
+QLabel#merchantAvatar {
+    border-radius: 25px;
+    border: 2px solid #1E90FF;
+}
+
+/* 状态栏样式 */
+QHBoxLayout#statusLayout {
+    background-color: #F0F8FF;
+    border-top: 1px solid #1E90FF;
+    padding: 10px;
+}
+
+/* 设置按钮和标签的圆角效果 */
+QPushButton, QLabel {
+    border-radius: 10px;
+}
+</string>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+   <item>
+    <layout class="QHBoxLayout" name="topLayout">
+     <item>
+      <widget class="QLabel" name="merchantAvatar">
+       <property name="minimumSize">
+        <size>
+         <width>50</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="../res.qrc">:/Images/business.jpg</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="merchantName">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>-1</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>商家名称</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="searchBox">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>-1</pointsize>
+        </font>
+       </property>
+       <property name="placeholderText">
+        <string>搜索商品、订单或客户</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::Preferred</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="refreshButton">
+       <property name="text">
+        <string>刷新</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Orientation::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Policy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="logoutButton">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>-1</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>退出登录</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="centerLayout">
+     <item>
+      <widget class="QTreeWidget" name="menuTree">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>-1</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="mouseTracking">
+        <bool>true</bool>
+       </property>
+       <property name="headerHidden">
+        <bool>true</bool>
+       </property>
+       <column>
+        <property name="text">
+         <string>菜单</string>
+        </property>
+       </column>
+       <item>
+        <property name="text">
+         <string>首页</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>商品管理</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>商品总览</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>增加商品</string>
+         </property>
+        </item>
+       </item>
+       <item>
+        <property name="text">
+         <string>促销管理</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>商品选择</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>折扣设置</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>限时秒杀</string>
+         </property>
+        </item>
+       </item>
+       <item>
+        <property name="text">
+         <string>订单管理</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>客户消息</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>统计分析</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>设置</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QWidget" name="contentWidget" native="true"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="statusLayout">
+     <item>
+      <widget class="QLabel" name="statusLabel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>-1</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>当前状态：正常运行</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="copyrightLabel">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>-1</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>版权所有 © 商家管理系统 2024</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignmentFlag::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="helpButton">
+       <property name="font">
+        <font>
+         <family>Segoe UI</family>
+         <pointsize>-1</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>帮助与反馈</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../res.qrc"/>
+ </resources>
+ <connections/>
+</ui>

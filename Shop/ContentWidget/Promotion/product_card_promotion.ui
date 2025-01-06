@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ProductCardPromotion</class>
+ <widget class="QWidget" name="ProductCardPromotion">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>250</width>
+    <height>350</height>
+   </rect>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+    QWidget {
+        background-color: #FFFFFF; /* 白色背景 */
+        border: 1px solid #87CEFA; /* 浅天蓝色边框 */
+        border-radius: 10px;
+    }
+    QWidget:hover {
+        background-color: #E0F7FF; /* 浅天蓝色背景（悬停时） */
+    }
+   </string>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+   <item>
+    <widget class="QLabel" name="productImageLabel">
+     <property name="minimumSize">
+      <size>
+       <width>200</width>
+       <height>200</height>
+      </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">
+       QLabel {
+           border: 1px solid #87CEFA; /* 浅天蓝色边框 */
+           border-radius: 10px;
+           background-color: #F5F5F5; /* 浅灰色背景 */
+       }
+      </string>
+     </property>
+     <property name="text">
+      <string>商品图片</string>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="discountLabel">
+     <property name="styleSheet">
+      <string notr="true">
+       QLabel {
+           font-size: 18px;
+           font-weight: bold;
+           color: #4682B4; /* 深天蓝色字体 */
+           background-color: #D6F5FF; /* 浅天蓝色背景 */
+           padding: 5px 10px;
+           border-radius: 5px;
+           text-align: center;
+       }
+      </string>
+     </property>
+     <property name="text">
+      <string>折扣 50%</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="productNameLabel">
+     <property name="styleSheet">
+      <string notr="true">
+       QLabel {
+           font-size: 20px;
+           font-weight: bold;
+           color: #333333; /* 深灰色字体 */
+           text-align: center;
+       }
+      </string>
+     </property>
+     <property name="text">
+      <string>商品名称</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="priceLayout">
+     <item>
+      <widget class="QLabel" name="originalPriceLabel">
+       <property name="styleSheet">
+        <string notr="true">
+         QLabel {
+             font-size: 16px;
+             color: #B0C4DE; /* 浅灰蓝色字体 */
+             text-decoration: line-through; /* 删除线 */
+         }
+        </string>
+       </property>
+       <property name="text">
+        <string>¥200.00</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="currentPriceLabel">
+       <property name="styleSheet">
+        <string notr="true">
+         QLabel {
+             font-size: 18px;
+             font-weight: bold;
+             color: #4682B4; /* 深天蓝色字体 */
+         }
+        </string>
+       </property>
+       <property name="text">
+        <string>¥100.00</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
