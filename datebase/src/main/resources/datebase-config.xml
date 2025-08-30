@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    database-config.xml 文件是 MyBatis 的配置文件，它通常用于配置 MyBatis 框架如何与数据库交互。
+    它定义了 MyBatis 的全局设置和一些常见的参数配置。
+-->
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!-- 设置日志实现，将 SQL 语句输出到控制台。这样有助于调试和查看 SQL 执行过程。-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+        <!-- 设置映射下划线命名到驼峰命名的规则，数据库中字段名 client_name 会被自动映射为 Java 类中的 clientName -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!-- 启用缓存 -->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+    <typeAliases>
+            <!-- 配置POJO类的别名，这里表示将com.linexus.pojo包下的所有类作为别名 -->
+            <package name="com.linexus.pojo"/>
+    </typeAliases>
+</configuration>

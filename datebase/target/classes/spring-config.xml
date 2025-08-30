@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jaxws="http://cxf.apache.org/jaxws"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:ws="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <!-- 发布 JAX-WS Web Service -->
+    <!--SimpleJaxWsServiceExporter是Spring提供的一个Bean，用于将JAX-WS Web Service发布到指定的地址。-->
+    <bean class="org.springframework.remoting.jaxws.SimpleJaxWsServiceExporter">
+    <!--baseAddress属性定义了服务器上 Web 服务的访问地址，这里设置为 http://localhost:8090/.-->
+        <property name="baseAddress" value="http://localhost:8090/"/>
+    </bean>
+
+
+    <!-- 数据源配置-->
+    <!-- 通过 DriverManagerDataSource 配置数据库连接。此配置包含了数据库的 URL、用户名、密码以及驱动类名。-->
+    <!-- 这段配置让 Spring 可以连接到 MySQL 数据库并为 MyBatis 提供数据源。-->
+    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/cppdatabase?useSSL=false&amp;
+                useUnicode=true&amp;characterEncoding=UTF-8"/>
+        <property name="username" value="root"/>
+        <property name="password" value="chen000907m"/>
+
+    </bean>
+
+    <!--MyBatis配置-->
+    <!--SqlSessionFactoryBean配置，sqlSessionFactory 配置了 MyBatis 的核心工厂，它负责创建与数据库交互的 SQL 会话。-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="datasource"/>
+        <property name="configLocation" value="classpath:datebase-config.xml"/>
+        <!--这是 MyBatis 的配置文件，包含数据库连接和其他 MyBatis 配置。-->
+        <property name="mapperLocations" value="classpath:com/linexus/dao/*.xml"/>
+        <!--指定了所有 MyBatis 映射文件的位置，通常用于存放 SQL 映射语句-->
+    </bean>
+
+    <!--SqlSessionTemplate配置，它是 MyBatis 与 Spring 集成的核心。-->
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory"/>
+    </bean>
+
+    <!-- 扫描 com.linexus.dao 包，确保扫描到 ProductMapper 和其他组件 -->
+
+    <!-- 配置 Mapper 扫描 -->
+<!--    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+<!--        <property name="basePackage" value="com.linexus.dao"/>  &lt;!&ndash; 指定 Mapper 接口所在包 &ndash;&gt;-->
+<!--    </bean>-->
+
+    <!-- 服务实现类的配置，在发布时，它会被 Spring 管理并暴露为 Web 服务。 -->
+    <bean id="WholeMapper" class="com.linexus.service.WholeMapperImpl">
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+
+    <!-- Spring beans for ProductMapper, OrderMapper, and ProductServiceImpl will be automatically picked up by component-scan -->
+<!--    <bean id="productService" class="com.linexus.service.ProductServiceImpl"/>-->
+
+
+
+<!--    <bean id="ProductMapper" class="com.linexus.service.ProductMapperImpl">-->
+<!--        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="ProductTypeMapper" class="com.linexus.service.ProductTypeMapperImpl">-->
+<!--        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="OrderMapper" class="com.linexus.service.OrderMapperImpl">-->
+<!--        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="Database" class="com.linexus.service.DatabaseImpl">-->
+<!--        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>-->
+<!--    </bean>-->
+</beans>

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--XML映射文件的名称与Mapper接口名称一致，并且将SML映射文件和Mapper接口放置在相同包下-->
+<!--
+    XML映射文件将 ClientMapper 接口中的方法映射到实际的 SQL 语句。每个 id 对应接口中的方法，
+    这样 MyBatis 就知道如何执行 SQL 操作。
+-->
+<!--
+    当 ClientMapper 接口的方法被调用时，MyBatis 会通过这个 XML 文件将接口方法与 SQL 映射起来，
+    并执行相应的 SQL 操作。
+-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.linexus.dao.MessageMapper"> <!--要与接口全限定名一致-->
+<cache readOnly="true"/>
+<!--getClientList 方法会执行 SELECT * FROM cppdatabase.client，查询所有客户端。-->
+
+
+    <select id="getMessageFromClient" parameterType="Shop" resultType="Message">
+        SELECT *
+        FROM cppdatabase.message
+        <where>
+            <if test="shopId != 0">
+                msg_shop_id = #{shopId}
+            </if>
+        </where>
+        ORDER BY msg_id ASC;
+    </select>
+
+    <select id="getReadMessageFromClient" parameterType="Shop" resultType="Message">
+        SELECT *
+        FROM cppdatabase.message
+        <where>
+            <if test="shopId != 0">
+                msg_shop_id = #{shopId}
+            </if>
+            AND read_status = 1
+        </where>
+        ORDER BY msg_id ASC;
+    </select>
+
+    <select id="getUnreadMessageFromClient" parameterType="Shop" resultType="Message">
+        SELECT *
+        FROM cppdatabase.message
+        <where>
+            <if test="shopId != 0">
+                msg_shop_id = #{shopId}
+            </if>
+            AND read_status = 0
+        </where>
+        ORDER BY msg_id ASC;
+    </select>
+
+
+    <select id="getMessageFromShop" parameterType="Client" resultType="Message">
+        SELECT *
+        FROM cppdatabase.message
+        <where>
+            <if test="clientId != 0">
+                msg_client_id = #{clientId}
+            </if>
+        </where>
+        ORDER BY msg_id ASC;
+    </select>
+
+    <select id="getReadMessageFromShop" parameterType="Client" resultType="Message">
+        SELECT *
+        FROM cppdatabase.message
+        <where>
+            <if test="clientId != 0">
+                msg_client_id = #{clientId}
+            </if>
+            AND read_status = 1
+        </where>
+        ORDER BY msg_id ASC;
+    </select>
+
+
+    <select id="getUnreadMessageFromShop" parameterType="Client" resultType="Message">
+        SELECT *
+        FROM cppdatabase.message
+        <where>
+            <if test="clientId != 0">
+                msg_client_id = #{clientId}
+            </if>
+            AND read_status = 0
+        </where>
+        ORDER BY msg_id ASC;
+    </select>
+
+    <insert id="InsertMessage" parameterType="Message">
+        INSERT INTO cppdatabase.message (msg_shop_id, msg_content, msg_time, read_status, msg_client_id, msg_client_name, msg_shop_name, msg_from)
+        VALUES (#{msgShopId}, #{msgContent}, #{msgTime}, #{readStatus}, #{msgClientId}, #{msgClientName}, #{msgShopName}, #{msgFrom});
+    </insert>
+
+    <update id="updateMessageFromClient">
+        UPDATE cppdatabase.message
+        <!--    <set>作用：动态地在行首插入SET关键字，并且会删掉额外的逗号-->
+        <set>
+            <if test="message.msgContent!=null">msg_content=#{message.msgContent},</if>
+            <if test="message.msgTime!=null">msg_time=#{message.msgTime},</if>
+            <if test="message.readStatus!=0">read_status=#{message.readStatus},</if>
+            <if test="message.msgClientId!=0">msg_client_id=#{message.msgClientId},</if>
+        </set>
+        WHERE msg_shop_id = #{shopId};
+    </update>
+
+    <update id="updateMessageFromShop">
+        UPDATE cppdatabase.message
+        <!--    <set>作用：动态地在行首插入SET关键字，并且会删掉额外的逗号-->
+        <set>
+            <if test="message.msgShopId!=0">msg_shop_id=#{message.msgShopId},</if>
+            <if test="message.msgContent!=null">msg_content=#{message.msgContent},</if>
+            <if test="message.msgTime!=null">msg_time=#{message.msgTime},</if>
+            <if test="message.readStatus!=0">read_status=#{message.readStatus},</if>
+        </set>
+        WHERE msg_client_id = #{clientId};
+    </update>
+
+
+    <delete id="deleteMessageFromClient">
+        delete
+        FROM cppdatabase.client
+        WHERE msg_id = #{message.msgId}
+          AND msg_shop_id = #{shopId};
+    </delete>
+
+    <delete id="deleteMessageFromShop">
+        delete
+        FROM cppdatabase.client
+        WHERE msg_id = #{message.msgId}
+          AND msg_client_id = #{clientId};
+    </delete>
+
+
+</mapper>

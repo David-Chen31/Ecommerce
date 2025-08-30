@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--XML映射文件的名称与Mapper接口名称一致，并且将SML映射文件和Mapper接口放置在相同包下-->
+<!--
+    XML映射文件将 ClientMapper 接口中的方法映射到实际的 SQL 语句。每个 id 对应接口中的方法，
+    这样 MyBatis 就知道如何执行 SQL 操作。
+-->
+<!--
+    当 ClientMapper 接口的方法被调用时，MyBatis 会通过这个 XML 文件将接口方法与 SQL 映射起来，
+    并执行相应的 SQL 操作。
+-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    <mapper namespace="com.linexus.dao.ClientMapper"> <!--要与接口全限定名一致-->
+    <cache readOnly="true"/>
+<!--getClientList 方法会执行 SELECT * FROM cppdatabase.client，查询所有客户端。-->
+    <select id='getClientList' resultType="Client">
+        SELECT *
+        FROM cppdatabase.client;
+    </select>
+
+    <select id="getClientByNameAndPwd" resultType="Client">
+        SELECT *
+        FROM cppdatabase.client
+        WHERE client_name = #{name}
+          AND client_pwd = #{pwd};
+    </select>
+
+    <insert id="InsertClient" parameterType="Client">
+        INSERT INTO cppdatabase.client (client_name, client_phone, client_email, client_sign_time, client_pwd,
+                                        client_bought, client_image)
+        VALUES (#{clientName}, #{clientPhone}, #{clientEmail}, #{clientSignTime}, #{clientPwd},
+                #{clientBought}, #{clientImage});
+    </insert>
+
+    <update id="updateClient" parameterType="Client">
+        UPDATE cppdatabase.client
+<!--    <set>作用：动态地在行首插入SET关键字，并且会删掉额外的逗号-->
+        <set>
+            <if test="clientName!=null">client_name=#{clientName},</if>
+            <if test="clientPhone!=null">client_phone=#{clientPhone},</if>
+            <if test="clientEmail!=null">client_email=#{clientEmail},</if>
+            <if test="clientPwd!=null">client_pwd=#{clientPwd},</if>
+            <if test="clientBought!=0">client_bought=#{clientBought},</if>
+            <if test="clientImage!=null">client_image=#{clientImage}</if>
+        </set>
+        WHERE client_id = #{clientId};
+    </update>
+
+    <select id="getClientLikeList" resultType="Client">
+        select *
+        FROM cppdatabase.client
+        WHERE client_name LIKE "%"#{mess}"%";
+    </select>
+
+    <delete id="deleteClientByNameAndPwd">
+        delete
+        FROM cppdatabase.client
+        WHERE client_name = #{name}
+          AND client_pwd = #{pwd};
+    </delete>
+</mapper>

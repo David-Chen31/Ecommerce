@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.linexus.dao.ProductMapper">
+    <cache readOnly="true"/>
+    <select id="getProductList" resultType="Product">
+        SELECT *
+        FROM cppdatabase.product
+        <where>
+            <!-- 如果 productShopId 不等于 0，则加入条件 -->
+            <if test="productShopId != 0">
+                product_shop_id = #{productShopId}
+            </if>
+        </where>
+        <choose>
+            <when test="choose == 1">
+                <!-- 取前十的商品 -->
+                ORDER BY product_buy_num DESC LIMIT 10
+            </when>
+            <when test="choose == 2">
+                ORDER BY product_buy_num DESC
+            </when>
+            <otherwise>
+                ORDER BY product_id  <!-- 添加默认排序 -->
+            </otherwise>
+        </choose>
+    </select>
+
+
+    <select id="getProductListByInfo" resultType="Product" parameterType="Product">
+        SELECT * FROM cppdatabase.product
+        <where>
+            <if test="productShopId!=0">
+                product_shop_id = #{productShopId}
+            </if>
+            <if test="productId!=0">
+                product_id = #{productId}
+            </if>
+            <if test="productName!=null">
+                AND product_name = #{productName}
+            </if>
+            <if test="productImage!=null">
+                AND product_image = #{productImage}
+            </if>
+            <if test="productDiscount!=0">
+                AND product_discount &lt;= 1
+            </if>
+        </where>
+    </select>
+
+    <insert id="addProduct" parameterType="Product">
+        INSERT INTO cppdatabase.product (product_shop_id, product_name, product_price, product_num, product_buy_num, product_image,
+                                         product_discount, product_flash_sale_price, discount_start_time, discount_end_time, flash_sale_start_time, flash_sale_end_time, flash_sale_purchase_limit)
+        VALUES (#{productShopId}, #{productName}, #{productPrice}, #{productNum}, #{productBuyNum}, #{productImage}, #{productDiscount}, #{productFlashSalePrice}
+               , #{discountStartTime}, #{discountEndTime}, #{flashSaleStartTime}, #{flashSaleEndTime}, #{flashSalePurchaseLimit})
+    </insert>
+
+    <delete id="deleteProductByInfo">
+        DELETE FROM cppdatabase.product
+        <where>
+            <if test="productShopId!=0">
+                product_shop_id = #{productShopId}
+            </if>
+            <if test="productId!=0">
+                product_id=#{productId}
+            </if>
+            <if test="productName!=null">
+                AND product_name=#{productName};
+            </if>
+        </where>
+    </delete>
+
+    <update id="updateProductByInfo">
+        UPDATE cppdatabase.product
+        <set>
+            <if test="productShopId!=null">product_shop_id=#{productShopId},</if>
+            <if test="productName!=null">product_name=#{productName},</if>
+            <if test="productPrice!=0">product_price=#{productPrice},</if>
+            <if test="productNum!=-1000">product_num=#{productNum},</if>
+            <if test="productImage!=null">product_image=#{productImage},</if>
+            <if test="productDiscount!=0">product_discount=#{productDiscount},</if>
+            <if test="productBuyNum!=-1000">product_buy_num=#{productBuyNum},</if>
+
+            <if test="productFlashSalePrice!=0">product_flash_sale_price=#{productFlashSalePrice},</if>
+            <if test="discountStartTime!=null">discount_start_time=#{discountStartTime},</if>
+            <if test="discountEndTime!=null">discount_end_time=#{discountEndTime},</if>
+            <if test="flashSaleStartTime!=null">flash_sale_start_time=#{flashSaleStartTime},</if>
+            <if test="flashSaleEndTime!=null">flash_sale_end_time=#{flashSaleEndTime},</if>
+            <if test="flashSalePurchaseLimit!=0">flash_sale_purchase_limit=#{flashSalePurchaseLimit}</if>
+        </set>
+        WHERE product_id = #{productId};
+    </update>
+
+    <select id="getProductLikeList"  resultType="Product" parameterType="Product">
+        SELECT *
+        FROM cppdatabase.product
+        <where>
+            <!-- 如果 mess 不为空，则加入模糊查询条件 -->
+            <if test="mess != null and mess != ''">
+                product_name LIKE CONCAT('%', #{mess}, '%')
+            </if>
+            <!-- 如果需要根据 productShopId 过滤 -->
+            <if test="product.productShopId != 0">
+                AND product_shop_id = #{product.productShopId}
+            </if>
+        </where>
+    </select>
+
+    <!-- 查询商品并加锁 -->
+    <select id="selectProductForUpdate" parameterType="int" resultType="Product">
+        SELECT *
+        FROM product
+        WHERE product_id = #{productId}
+            FOR UPDATE
+    </select>
+</mapper>
